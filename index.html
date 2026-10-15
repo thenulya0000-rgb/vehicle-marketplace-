@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideLanka - Premium Motorbikes & Scooters Marketplace</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #090d16; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" onclick="resetFilters(); return false;" class="flex items-center gap-3 group">
+          <div class="bg-gradient-to-tr from-emerald-600 to-teal-400 text-slate-950 p-2.5 rounded-2xl shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <i data-lucide="bike" class="w-6 h-6 stroke-[2.5]"></i>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-white block leading-none">RIDE<span class="text-emerald-400">LANKA</span></span>
+            <span class="text-[10px] font-medium text-slate-400 tracking-wider uppercase">Bikes & Scooters</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
+          <a href="#" onclick="resetFilters(); return false;" class="hover:text-emerald-400 transition-colors">Home</a>
+          <a href="#browse" class="hover:text-emerald-400 transition-colors">Listings</a>
+          <a href="#" onclick="openContactModal(); return false;" class="hover:text-emerald-400 transition-colors">Contact Us</a>
+        </nav>
+
+        <!-- Right Quick Action -->
+        <div class="flex items-center gap-4">
+          <button onclick="openContactModal()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all flex items-center gap-2">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Support & Enquiries</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO & SEARCH CONTAINER ==================== -->
+  <section class="relative pt-12 pb-16 overflow-hidden">
+    <!-- Glow Effects -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Hero Headline -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Sri Lanka's Dedicated Two-Wheeler Portal</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Find Your Next <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Motorbike or Scooter</span>
+        </h1>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Explore direct listings across Sri Lanka with full specifications, verified seller info, and 1-click WhatsApp messaging.
+        </p>
+      </div>
+
+      <!-- Main Filter Box -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative" id="browse">
+        
+        <!-- Category Selector Tabs (Motorbikes & Scooters ONLY) -->
+        <div class="flex justify-center mb-8">
+          <div class="bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800 flex gap-2 w-full max-w-md">
+            <button id="tab-motorbike" onclick="switchTab('motorbike')" class="flex-1 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md">
+              <i data-lucide="bike" class="w-4 h-4"></i>
+              Motorbikes
+            </button>
+            <button id="tab-scooter" onclick="switchTab('scooter')" class="flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              Scooters
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Controls Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          
+          <!-- Make Filter -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Make / Brand</label>
+            <select id="makeFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
+              <option value="">Any Make</option>
+            </select>
+          </div>
+
+          <!-- Model Keyword -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Model Name</label>
+            <input type="text" id="modelFilter" oninput="applyFilters()" placeholder="Model (e.g. FZ, Activa, NS200)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
+          </div>
+
+          <!-- Condition -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Condition</label>
+            <select id="conditionFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Condition</option>
+              <option value="Unregistered">Brand New / Unregistered</option>
+              <option value="Used">Used</option>
+              <option value="Reconditioned">Reconditioned</option>
+            </select>
+          </div>
+
+          <!-- City / District -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">City / District</label>
+            <select id="cityFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any City</option>
+              <option value="Colombo">Colombo</option>
+              <option value="Gampaha">Gampaha</option>
+              <option value="Kandy">Kandy</option>
+              <option value="Kurunegala">Kurunegala</option>
+              <option value="Galle">Galle</option>
+              <option value="Kalutara">Kalutara</option>
+              <option value="Anuradhapura">Anuradhapura</option>
+            </select>
+          </div>
+
+          <!-- Fuel Type -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Fuel Type</label>
+            <select id="fuelFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Fuel</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Electric">Electric</option>
+            </select>
+          </div>
+
+          <!-- Transmission / Gear -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Gear / Transmission</label>
+            <select id="gearFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Transmission</option>
+              <option value="Manual">Manual</option>
+              <option value="Automatic">Automatic (CVT)</option>
+            </select>
+          </div>
+
+          <!-- Year Min -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Year Min</label>
+            <select id="yearMinFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Year Min</option>
+              <option value="2012">2012</option>
+              <option value="2015">2015</option>
+              <option value="2018">2018</option>
+              <option value="2020">2020</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+
+          <!-- Year Max -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Year Max</label>
+            <select id="yearMaxFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Year Max</option>
+              <option value="2025">2025</option>
+              <option value="2023">2023</option>
+              <option value="2020">2020</option>
+              <option value="2018">2018</option>
+            </select>
+          </div>
+
+          <!-- Max Mileage -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Max Mileage (KM)</label>
+            <select id="mileageFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Mileage</option>
+              <option value="10000">Under 10,000 km</option>
+              <option value="25000">Under 25,000 km</option>
+              <option value="50000">Under 50,000 km</option>
+              <option value="75000">Under 75,000 km</option>
+            </select>
+          </div>
+
+          <!-- Min Price LKR -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Min Price (LKR)</label>
+            <input type="number" id="minPriceFilter" oninput="applyFilters()" placeholder="Min Price" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 outline-none transition-all">
+          </div>
+
+          <!-- Max Price LKR -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Max Price (LKR)</label>
+            <input type="number" id="maxPriceFilter" oninput="applyFilters()" placeholder="Max Price" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 outline-none transition-all">
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex items-end gap-2">
+            <button onclick="applyFilters()" class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2 h-[42px]">
+              <i data-lucide="search" class="w-4 h-4"></i>
+              <span>Apply Filters</span>
+            </button>
+            <button onclick="resetFilters()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs px-3.5 py-2.5 rounded-xl transition-all h-[42px]" title="Reset All Filters">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== LISTINGS SECTION ==================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 flex-1 w-full">
+    
+    <!-- Controls Header -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-800/80">
+      <div>
+        <h2 id="sectionHeading" class="text-xl sm:text-2xl font-bold text-white tracking-tight">Available Motorbikes</h2>
+        <p id="resultsCount" class="text-xs text-slate-400 mt-1">Showing matching listings...</p>
+      </div>
+
+      <!-- Sorting -->
+      <div class="flex items-center gap-2 self-end sm:self-auto">
+        <label class="text-xs text-slate-400 font-medium">Sort By:</label>
+        <select id="sortBy" onchange="applyFilters()" class="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded-xl px-3 py-2 outline-none focus:border-emerald-500">
+          <option value="newest">Newest First</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="mileage-asc">Lowest Mileage</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Listings Grid -->
+    <div id="vehicleGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected dynamically via JS -->
+    </div>
+
+    <!-- No Results State -->
+    <div id="noResults" class="hidden text-center py-20 bg-slate-900/50 border border-slate-800/80 rounded-3xl p-8 my-4">
+      <div class="w-14 h-14 bg-slate-800/80 text-slate-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-inner">
+        <i data-lucide="search-x" class="w-7 h-7"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white">No Vehicles Match Your Search</h3>
+      <p class="text-xs text-slate-400 mt-1 max-w-sm mx-auto mb-5">Try resetting or broadening your filter parameters to see more listings.</p>
+      <button onclick="resetFilters()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-xs rounded-xl hover:from-emerald-400 hover:to-teal-400 transition-all shadow-lg shadow-emerald-500/20">
+        Reset All Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-slate-900/90 border-t border-slate-800/80 text-slate-400 text-xs py-10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-emerald-500 text-slate-950 p-1.5 rounded-lg">
+          <i data-lucide="bike" class="w-4 h-4"></i>
+        </div>
+        <span class="text-white font-bold text-sm">RIDE<span class="text-emerald-400">LANKA</span></span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Sri Lanka's Motorbike & Scooter Portal</span>
+      </div>
+      <p class="text-slate-500">&copy; 2026 RideLanka. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== VEHICLE DETAIL MODAL ==================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl my-6">
+      <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 z-10 bg-slate-950/70 text-slate-300 hover:text-white p-2 rounded-full border border-slate-800 backdrop-blur-md transition-all">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div id="modalContent" class="p-6 sm:p-8">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CONTACT MODAL ==================== -->
+  <div id="contactModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl p-6 sm:p-8">
+      <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 z-10 bg-slate-800 text-slate-400 hover:text-white p-2 rounded-full transition-all">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="headset" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white">RideLanka Support</h3>
+        <p class="text-xs text-slate-400 mt-1">Have questions or want to advertise your vehicle?</p>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <a href="https://wa.me/94775688599?text=Hello%20RideLanka%20Support,%20I%20have%20an%20inquiry" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Chat on WhatsApp (077 568 8599)
+        </a>
+        <a href="tel:+94775688599" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-3.5 rounded-xl transition-all border border-slate-700">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          Call Hotline (077 568 8599)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ============ SUPABASE CONNECTION ============
+    // Project URL and public anon key (safe to be public; the table is read-only for visitors)
+    const SUPABASE_URL = "https://mtogksbgrpmdkurtblbs.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10b2drc2JncnBtZGt1cnRibGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwNzUzODAsImV4cCI6MjEwNzY1MTM4MH0.RTOvfdGETklZUzOseZMEPKZxHeaPXcqhoW0Gy6s7F0w";
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Vehicles now come ONLY from the Supabase "vehicles" table
+    let vehiclesData = [];
+
+    // Escape text from the database before putting it into the page
+    function esc(t) {
+      return String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    }
+
+    // Convert a database row into the object shape the cards expect
+    function mapRow(r) {
+      const cc = r.engine_cc;
+      const engineLabel = (r.fuel === "Electric" || cc === null || cc === undefined || cc === "")
+        ? "Electric"
+        : (isNaN(cc) ? esc(cc) : cc + " cc");
+      return {
+        id: r.id,
+        title: esc(r.title),
+        category: r.category,
+        make: esc(r.make),
+        model: esc(r.model),
+        condition: r.condition,
+        city: esc(r.location),
+        price: Number(r.price_lkr) || 0,
+        year: Number(r.year) || 0,
+        mileage: Number(r.mileage_km) || 0,
+        engineCc: engineLabel,
+        fuel: r.fuel,
+        gear: r.transmission,
+        phone: esc(r.phone),
+        whatsapp: String(r.whatsapp || "").replace(/\D/g, ""),
+        sellerName: "RideLanka Seller",
+        image: esc(r.image_url),
+        description: esc(r.description || `${r.title} - ${r.condition} ${r.category} available in ${r.location}. Contact the seller for more details.`)
+      };
+    }
+
+    async function loadVehicles() {
+      const countLabel = document.getElementById('resultsCount');
+      countLabel.innerText = "Loading vehicles from database...";
+      const { data, error } = await db
+        .from('vehicles')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error("Supabase error:", error);
+        countLabel.innerText = "Could not connect to the database: " + error.message;
+        vehiclesData = [];
+      } else {
+        console.log("Supabase connected. Rows received:", data.length);
+        vehiclesData = data.map(mapRow);
+      }
+    }
+
+    // Current Active Tab
+    let currentTab = 'motorbike';
+
+    const makesByCategory = {
+      motorbike: ["Yamaha", "Honda", "Bajaj", "TVS", "Kawasaki", "Suzuki"],
+      scooter: ["Honda", "TVS", "Vespa", "Hero", "Yamaha", "Suzuki"]
+    };
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", async () => {
+      lucide.createIcons();
+      await loadVehicles();
+      switchTab('motorbike');
+    });
+
+    // Tab Switcher
+    function switchTab(category) {
+      currentTab = category;
+
+      const motorbikeBtn = document.getElementById('tab-motorbike');
+      const scooterBtn = document.getElementById('tab-scooter');
+      const heading = document.getElementById('sectionHeading');
+
+      if (category === 'motorbike') {
+        motorbikeBtn.className = "flex-1 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md";
+        scooterBtn.className = "flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white";
+        heading.innerText = "Available Motorbikes";
+      } else {
+        scooterBtn.className = "flex-1 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md";
+        motorbikeBtn.className = "flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white";
+        heading.innerText = "Available Scooters";
+      }
+
+      populateMakes();
+      applyFilters();
+    }
+
+    // Populate Make Dropdown
+    function populateMakes() {
+      const makeSelect = document.getElementById('makeFilter');
+      const list = makesByCategory[currentTab] || [];
+      makeSelect.innerHTML = `<option value="">Any Make</option>` + list.map(m => `<option value="${m}">${m}</option>`).join('');
+    }
+
+    // Filtering Engine
+    function applyFilters() {
+      const selectedMake = document.getElementById('makeFilter').value;
+      const modelKeyword = document.getElementById('modelFilter').value.trim().toLowerCase();
+      const condition = document.getElementById('conditionFilter').value;
+      const city = document.getElementById('cityFilter').value;
+      const fuel = document.getElementById('fuelFilter').value;
+      const gear = document.getElementById('gearFilter').value;
+      const yearMin = parseInt(document.getElementById('yearMinFilter').value) || 0;
+      const yearMax = parseInt(document.getElementById('yearMaxFilter').value) || 9999;
+      const maxMileage = parseInt(document.getElementById('mileageFilter').value) || Infinity;
+      const minPrice = parseFloat(document.getElementById('minPriceFilter').value) || 0;
+      const maxPrice = parseFloat(document.getElementById('maxPriceFilter').value) || Infinity;
+      const sortBy = document.getElementById('sortBy').value;
+
+      let filtered = vehiclesData.filter(item => {
+        if (item.category !== currentTab) return false;
+        if (selectedMake && item.make !== selectedMake) return false;
+        if (modelKeyword && !item.title.toLowerCase().includes(modelKeyword) && !item.model.toLowerCase().includes(modelKeyword)) return false;
+        if (condition && item.condition !== condition) return false;
+        if (city && item.city !== city) return false;
+        if (fuel && item.fuel !== fuel) return false;
+        if (gear && item.gear !== gear) return false;
+        if (item.year < yearMin || item.year > yearMax) return false;
+        if (item.mileage > maxMileage) return false;
+        if (item.price < minPrice || item.price > maxPrice) return false;
+
+        return true;
+      });
+
+      // Sort
+      if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+      else if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+      else if (sortBy === 'mileage-asc') filtered.sort((a, b) => a.mileage - b.mileage);
+      else filtered.sort((a, b) => b.year - a.year);
+
+      renderCards(filtered);
+    }
+
+    // Render Vehicle Cards
+    function renderCards(list) {
+      const grid = document.getElementById('vehicleGrid');
+      const noResults = document.getElementById('noResults');
+      const countLabel = document.getElementById('resultsCount');
+
+      countLabel.innerText = `Showing ${list.length} verified ${currentTab === 'motorbike' ? 'motorbikes' : 'scooters'} in Sri Lanka`;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+
+      grid.innerHTML = list.map(v => {
+        const waMsg = encodeURIComponent(`Hi ${v.sellerName}, I am inquiring about your ${v.title} listed on RideLanka for LKR ${v.price.toLocaleString()}. Is this still available?`);
+        const waUrl = `https://wa.me/${v.whatsapp}?text=${waMsg}`;
+
+        return `
+          <div class="bg-slate-900 border border-slate-800/90 rounded-2xl overflow-hidden shadow-lg hover:border-slate-700 hover:shadow-emerald-500/5 transition-all duration-300 flex flex-col justify-between group">
+            
+            <div>
+              <!-- Image Container -->
+              <div class="relative h-52 bg-slate-950 overflow-hidden cursor-pointer" onclick="openDetailModal(${v.id})">
+                <img src="${v.image}" alt="${v.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.src='https://placehold.co/600x400/0f172a/94a3b8?text=${encodeURIComponent(v.title)}'">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                
+                <!-- Condition Tag -->
+                <span class="absolute top-3 left-3 bg-slate-950/80 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-md">
+                  ${v.condition}
+                </span>
+
+                <!-- Price Banner -->
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span class="text-white font-extrabold text-base bg-slate-950/90 border border-slate-800 px-3 py-1 rounded-xl backdrop-blur-md text-emerald-400">
+                    LKR ${v.price.toLocaleString()}
+                  </span>
+                  <span class="text-[11px] text-slate-300 font-medium bg-slate-950/80 px-2.5 py-1 rounded-lg backdrop-blur-md flex items-center gap-1">
+                    <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> ${v.city}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Content Specs -->
+              <div class="p-5">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-medium mb-1">
+                  <span>${v.make}</span>
+                  <span>Year: ${v.year}</span>
+                </div>
+                
+                <h3 class="text-base font-bold text-white line-clamp-1 hover:text-emerald-400 transition-colors cursor-pointer" onclick="openDetailModal(${v.id})">
+                  ${v.title}
+                </h3>
+
+                <!-- Key Specs Grid -->
+                <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-800/80 text-[11px]">
+                  <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800 text-center">
+                    <span class="block text-[10px] text-slate-500">Mileage</span>
+                    <strong class="text-slate-200">${v.mileage.toLocaleString()} km</strong>
+                  </div>
+                  <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800 text-center">
+                    <span class="block text-[10px] text-slate-500">Capacity</span>
+                    <strong class="text-slate-200">${v.engineCc}</strong>
+                  </div>
+                  <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800 text-center">
+                    <span class="block text-[10px] text-slate-500">Fuel</span>
+                    <strong class="text-slate-200">${v.fuel}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seller & Action Buttons -->
+            <div class="p-5 pt-0 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-800/50">
+                <span>Seller: <strong class="text-slate-200 font-semibold">${v.sellerName}</strong></span>
+                <span class="text-slate-500">${v.gear}</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <a href="tel:${v.phone}" class="flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs py-2.5 rounded-xl transition-all border border-slate-700">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-slate-400"></i>
+                  Call
+                </a>
+
+                <a href="${waUrl}" target="_blank" class="flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-emerald-600/20">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Modal Details View
+    function openDetailModal(id) {
+      const v = vehiclesData.find(item => item.id === id);
+      if (!v) return;
+
+      const waMsg = encodeURIComponent(`Hi ${v.sellerName}, I am inquiring about your ${v.title} listed on RideLanka for LKR ${v.price.toLocaleString()}.`);
+      const waUrl = `https://wa.me/${v.whatsapp}?text=${waMsg}`;
+
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
+        <div class="space-y-5">
+          <div class="aspect-video bg-slate-950 rounded-2xl overflow-hidden relative border border-slate-800">
+            <img src="${v.image}" alt="${v.title}" class="w-full h-full object-cover">
+            <span class="absolute bottom-4 left-4 bg-slate-950/90 border border-slate-800 text-emerald-400 font-extrabold text-base px-4 py-1.5 rounded-xl backdrop-blur-md">
+              LKR ${v.price.toLocaleString()}
+            </span>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+              <span>${v.condition}</span> • <span>${v.city}, Sri Lanka</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white mt-1">${v.title}</h2>
+          </div>
+
+          <!-- Specs Table -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 text-xs">
+            <div>
+              <span class="text-slate-500 block">Manufacture Year</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.year}</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Mileage</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.mileage.toLocaleString()} km</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Engine Capacity</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.engineCc}</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Transmission</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.gear} (${v.fuel})</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Vehicle Description</h4>
+            <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/60">${v.description}</p>
+          </div>
+
+          <!-- Seller Contact Info -->
+          <div class="border-t border-slate-800 pt-5 mt-2">
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-xs text-slate-400">Seller: <strong class="text-white">${v.sellerName}</strong> (${v.city})</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a href="tel:${v.phone}" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs py-3.5 rounded-xl transition-all border border-slate-700">
+                <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+                Call ${v.phone}
+              </a>
+              <a href="${waUrl}" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                WhatsApp Chat
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('detailModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function openContactModal() {
+      document.getElementById('contactModal').classList.remove('hidden');
+    }
+
+    // Reset Filters
+    function resetFilters() {
+      document.getElementById('makeFilter').value = "";
+      document.getElementById('modelFilter').value = "";
+      document.getElementById('conditionFilter').value = "";
+      document.getElementById('cityFilter').value = "";
+      document.getElementById('fuelFilter').value = "";
+      document.getElementById('gearFilter').value = "";
+      document.getElementById('yearMinFilter').value = "";
+      document.getElementById('yearMaxFilter').value = "";
+      document.getElementById('mileageFilter').value = "";
+      document.getElementById('minPriceFilter').value = "";
+      document.getElementById('maxPriceFilter').value = "";
+      document.getElementById('sortBy').value = "newest";
+      applyFilters();
+    }
+  </script>
+</body>
+</html>
