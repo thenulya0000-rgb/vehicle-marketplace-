@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RideLanka - Premium Motorbikes & Scooters Marketplace</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%221%22%20x2=%221%22%20y2=%220%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23059669%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%232dd4bf%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2216%22%20fill=%22url(%23g)%22/%3E%3Cg%20fill=%22none%22%20stroke=%22%23020617%22%20stroke-width=%224%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Ccircle%20cx=%2217%22%20cy=%2243%22%20r=%227.5%22/%3E%3Ccircle%20cx=%2247%22%20cy=%2243%22%20r=%227.5%22/%3E%3Cpath%20d=%22M17%2043L26%2029H38L47%2043%22/%3E%3Cpath%20d=%22M38%2029L41%2020H47%22/%3E%3Cpath%20d=%22M21%2029H29%22/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="64x64" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <!-- Tailwind CSS (compiled, no CDN) -->
+  <style>
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.bottom-3{bottom:.75rem}.bottom-4{bottom:1rem}.left-1\/2{left:50%}.left-3{left:.75rem}.left-4{left:1rem}.right-3{right:.75rem}.right-4{right:1rem}.top-0{top:0}.top-1\/2{top:50%}.top-1\/4{top:25%}.top-12{top:3rem}.top-3{top:.75rem}.top-4{top:1rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-4{margin-top:1rem;margin-bottom:1rem}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-10{margin-bottom:2.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-auto{margin-top:auto}.line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}.block{display:block}.inline{display:inline}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.aspect-video{aspect-ratio:16/9}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-20{height:5rem}.h-3{height:.75rem}.h-3\.5{height:.875rem}.h-4{height:1rem}.h-52{height:13rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-9{height:2.25rem}.h-\[300px\]{height:300px}.h-\[42px\]{height:42px}.h-full{height:100%}.min-h-full{min-height:100%}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-20{width:5rem}.w-3{width:.75rem}.w-3\.5{width:.875rem}.w-4{width:1rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-\[600px\]{width:600px}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;-moz-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-8>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem*var(--tw-space-x-reverse));margin-left:calc(2rem*(1 - var(--tw-space-x-reverse)))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.self-end{align-self:flex-end}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-emerald-500{--tw-border-opacity:1;border-color:rgb(16 185 129/var(--tw-border-opacity,1))}.border-emerald-500\/20{border-color:rgba(16,185,129,.2)}.border-emerald-500\/30{border-color:rgba(16,185,129,.3)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-slate-800\/50{border-color:rgba(30,41,59,.5)}.border-slate-800\/60{border-color:rgba(30,41,59,.6)}.border-slate-800\/80{border-color:rgba(30,41,59,.8)}.border-slate-800\/90{border-color:rgba(30,41,59,.9)}.bg-emerald-500\/10{background-color:rgba(16,185,129,.1)}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-800\/80{background-color:rgba(30,41,59,.8)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/50{background-color:rgba(15,23,42,.5)}.bg-slate-900\/80{background-color:rgba(15,23,42,.8)}.bg-slate-900\/90{background-color:rgba(15,23,42,.9)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-slate-950\/40{background-color:rgba(2,6,23,.4)}.bg-slate-950\/60{background-color:rgba(2,6,23,.6)}.bg-slate-950\/70{background-color:rgba(2,6,23,.7)}.bg-slate-950\/80{background-color:rgba(2,6,23,.8)}.bg-slate-950\/90{background-color:rgba(2,6,23,.9)}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top,var(--tw-gradient-stops))}.from-emerald-400{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgba(52,211,153,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-emerald-500{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgba(16,185,129,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-slate-950{--tw-gradient-from:#020617 var(--tw-gradient-from-position);--tw-gradient-to:rgba(2,6,23,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-teal-300{--tw-gradient-to:rgba(94,234,212,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#5eead4 var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),transparent var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-cyan-400{--tw-gradient-to:#22d3ee var(--tw-gradient-to-position)}.to-teal-500{--tw-gradient-to:#14b8a6 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{-o-object-fit:cover;object-fit:cover}.p-1\.5{padding:.375rem}.p-2{padding:.5rem}.p-3\.5{padding:.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-3\.5{padding-left:.875rem;padding-right:.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.pb-1{padding-bottom:.25rem}.pb-16{padding-bottom:4rem}.pb-20{padding-bottom:5rem}.pb-4{padding-bottom:1rem}.pt-0{padding-top:0}.pt-12{padding-top:3rem}.pt-2{padding-top:.5rem}.pt-3{padding-top:.75rem}.pt-5{padding-top:1.25rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.capitalize{text-transform:capitalize}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-slate-600::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(71 85 105/var(--tw-placeholder-opacity,1))}.placeholder-slate-600::placeholder{--tw-placeholder-opacity:1;color:rgb(71 85 105/var(--tw-placeholder-opacity,1))}.opacity-70{opacity:.7}.opacity-80{opacity:.8}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-inner{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgba(0,0,0,.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-emerald-500\/20{--tw-shadow-color:rgba(16,185,129,.2);--tw-shadow:var(--tw-shadow-colored)}.shadow-emerald-600\/20{--tw-shadow-color:rgba(5,150,105,.2);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.blur-\[120px\]{--tw-blur:blur(120px)}.blur-\[120px\],.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-md,.backdrop-blur-xl{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.selection\:bg-emerald-500 ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.selection\:bg-emerald-500 ::selection{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.selection\:text-slate-950 ::-moz-selection{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.selection\:text-slate-950 ::selection{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.selection\:bg-emerald-500::-moz-selection{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.selection\:bg-emerald-500::selection{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.selection\:text-slate-950::-moz-selection{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.selection\:text-slate-950::selection{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.hover\:border-slate-700:hover{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.hover\:bg-emerald-500:hover{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.hover\:bg-slate-950:hover{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.hover\:from-emerald-400:hover{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgba(52,211,153,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.hover\:to-teal-400:hover{--tw-gradient-to:#2dd4bf var(--tw-gradient-to-position)}.hover\:text-emerald-400:hover{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:opacity-100:hover{opacity:1}.hover\:shadow-emerald-500\/30:hover{--tw-shadow-color:rgba(16,185,129,.3);--tw-shadow:var(--tw-shadow-colored)}.hover\:shadow-emerald-500\/5:hover{--tw-shadow-color:rgba(16,185,129,.05);--tw-shadow:var(--tw-shadow-colored)}.focus\:border-emerald-500:focus{--tw-border-opacity:1;border-color:rgb(16 185 129/var(--tw-border-opacity,1))}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-emerald-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(16 185 129/var(--tw-ring-opacity,1))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width:640px){.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:self-auto{align-self:auto}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:768px){.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}
+  </style>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #090d16; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- Logo symbol (reused in header and footer) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="rl-logo" viewBox="0 0 64 64"><defs><linearGradient id="rl-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#059669"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#rl-g)"/><g fill="none" stroke="#020617" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="43" r="7.5"/><circle cx="47" cy="43" r="7.5"/><path d="M17 43L26 29H38L47 43"/><path d="M38 29L41 20H47"/><path d="M21 29H29"/></g></symbol></svg>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" onclick="resetFilters(); return false;" class="flex items-center gap-3 group">
+          <svg class="w-11 h-11 rounded-2xl shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform" role="img" aria-label="RideLanka logo"><use href="#rl-logo"/></svg>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-white block leading-none">RIDE<span class="text-emerald-400">LANKA</span></span>
+            <span class="text-[10px] font-medium text-slate-400 tracking-wider uppercase">Bikes & Scooters</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
+          <a href="#" onclick="resetFilters(); return false;" class="hover:text-emerald-400 transition-colors">Home</a>
+          <a href="#browse" class="hover:text-emerald-400 transition-colors">Listings</a>
+          <a href="#" onclick="openContactModal(); return false;" class="hover:text-emerald-400 transition-colors">Contact Us</a>
+        </nav>
+
+        <!-- Right Quick Action -->
+        <div class="flex items-center gap-4">
+          <button onclick="openContactModal()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all flex items-center gap-2">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Support & Enquiries</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO & SEARCH CONTAINER ==================== -->
+  <section class="relative pt-12 pb-16 overflow-hidden">
+    <!-- Glow Effects -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Hero Headline -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Sri Lanka's Dedicated Two-Wheeler Portal</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Find Your Next <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Motorbike or Scooter</span>
+        </h1>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">
+          Explore direct listings across Sri Lanka with full specifications, verified seller info, and 1-click WhatsApp messaging.
+        </p>
+      </div>
+
+      <!-- Main Filter Box -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative" id="browse">
+        
+        <!-- Category Selector Tabs (All, Motorbikes, Scooters) -->
+        <div class="flex justify-center mb-8">
+          <div class="bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800 flex gap-2 w-full max-w-lg">
+            <button id="tab-all" onclick="switchTab('all')" class="flex-1 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md">
+              <i data-lucide="layout-grid" class="w-4 h-4"></i>
+              All
+            </button>
+            <button id="tab-motorbike" onclick="switchTab('motorbike')" class="flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white">
+              <i data-lucide="bike" class="w-4 h-4"></i>
+              Motorbikes
+            </button>
+            <button id="tab-scooter" onclick="switchTab('scooter')" class="flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              Scooters
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Controls Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          
+          <!-- Make Filter -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Make / Brand</label>
+            <select id="makeFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
+              <option value="">Any Make</option>
+            </select>
+          </div>
+
+          <!-- Model Keyword -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Model Name</label>
+            <input type="text" id="modelFilter" oninput="applyFilters()" placeholder="Model (e.g. FZ, Activa, NS200)" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
+          </div>
+
+          <!-- Condition -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Condition</label>
+            <select id="conditionFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Condition</option>
+              <option value="Unregistered">Brand New / Unregistered</option>
+              <option value="Used">Used</option>
+              <option value="Reconditioned">Reconditioned</option>
+            </select>
+          </div>
+
+          <!-- City / District -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">City / District</label>
+            <select id="cityFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any City</option>
+              <option value="Colombo">Colombo</option>
+              <option value="Gampaha">Gampaha</option>
+              <option value="Kandy">Kandy</option>
+              <option value="Kurunegala">Kurunegala</option>
+              <option value="Galle">Galle</option>
+              <option value="Kalutara">Kalutara</option>
+              <option value="Anuradhapura">Anuradhapura</option>
+            </select>
+          </div>
+
+          <!-- Fuel Type -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Fuel Type</label>
+            <select id="fuelFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Fuel</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Electric">Electric</option>
+            </select>
+          </div>
+
+          <!-- Transmission / Gear -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Gear / Transmission</label>
+            <select id="gearFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Transmission</option>
+              <option value="Manual">Manual</option>
+              <option value="Automatic">Automatic (CVT)</option>
+            </select>
+          </div>
+
+          <!-- Year Min -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Year Min</label>
+            <select id="yearMinFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Year Min</option>
+              <option value="2012">2012</option>
+              <option value="2015">2015</option>
+              <option value="2018">2018</option>
+              <option value="2020">2020</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+
+          <!-- Year Max -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Year Max</label>
+            <select id="yearMaxFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Year Max</option>
+              <option value="2025">2025</option>
+              <option value="2023">2023</option>
+              <option value="2020">2020</option>
+              <option value="2018">2018</option>
+            </select>
+          </div>
+
+          <!-- Max Mileage -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Max Mileage (KM)</label>
+            <select id="mileageFilter" onchange="applyFilters()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:border-emerald-500 outline-none transition-all">
+              <option value="">Any Mileage</option>
+              <option value="10000">Under 10,000 km</option>
+              <option value="25000">Under 25,000 km</option>
+              <option value="50000">Under 50,000 km</option>
+              <option value="75000">Under 75,000 km</option>
+            </select>
+          </div>
+
+          <!-- Min Price LKR -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Min Price (LKR)</label>
+            <input type="number" id="minPriceFilter" oninput="applyFilters()" placeholder="Min Price" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 outline-none transition-all">
+          </div>
+
+          <!-- Max Price LKR -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Max Price (LKR)</label>
+            <input type="number" id="maxPriceFilter" oninput="applyFilters()" placeholder="Max Price" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 placeholder-slate-600 focus:border-emerald-500 outline-none transition-all">
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex items-end gap-2">
+            <button onclick="applyFilters()" class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2 h-[42px]">
+              <i data-lucide="search" class="w-4 h-4"></i>
+              <span>Apply Filters</span>
+            </button>
+            <button onclick="resetFilters()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs px-3.5 py-2.5 rounded-xl transition-all h-[42px]" title="Reset All Filters">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== LISTINGS SECTION ==================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 flex-1 w-full">
+    
+    <!-- Controls Header -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-800/80">
+      <div>
+        <h2 id="sectionHeading" class="text-xl sm:text-2xl font-bold text-white tracking-tight">All Vehicles</h2>
+        <p id="resultsCount" class="text-xs text-slate-400 mt-1">Showing matching listings...</p>
+      </div>
+
+      <!-- Sorting -->
+      <div class="flex items-center gap-2 self-end sm:self-auto">
+        <label class="text-xs text-slate-400 font-medium">Sort By:</label>
+        <select id="sortBy" onchange="applyFilters()" class="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded-xl px-3 py-2 outline-none focus:border-emerald-500">
+          <option value="newest">Newest First</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="mileage-asc">Lowest Mileage</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Listings Grid -->
+    <div id="vehicleGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected dynamically via JS -->
+    </div>
+
+    <!-- No Results State -->
+    <div id="noResults" class="hidden text-center py-20 bg-slate-900/50 border border-slate-800/80 rounded-3xl p-8 my-4">
+      <div class="w-14 h-14 bg-slate-800/80 text-slate-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-inner">
+        <i data-lucide="search-x" class="w-7 h-7"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white">No Vehicles Match Your Search</h3>
+      <p class="text-xs text-slate-400 mt-1 max-w-sm mx-auto mb-5">Try resetting or broadening your filter parameters to see more listings.</p>
+      <button onclick="resetFilters()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-xs rounded-xl hover:from-emerald-400 hover:to-teal-400 transition-all shadow-lg shadow-emerald-500/20">
+        Reset All Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-slate-900/90 border-t border-slate-800/80 text-slate-400 text-xs py-10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <svg class="w-7 h-7 rounded-lg" role="img" aria-label="RideLanka logo"><use href="#rl-logo"/></svg>
+        <span class="text-white font-bold text-sm">RIDE<span class="text-emerald-400">LANKA</span></span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Sri Lanka's Motorbike & Scooter Portal</span>
+      </div>
+      <p class="text-slate-500">&copy; 2026 RideLanka. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== VEHICLE DETAIL MODAL ==================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl my-6">
+      <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 z-10 bg-slate-950/70 text-slate-300 hover:text-white p-2 rounded-full border border-slate-800 backdrop-blur-md transition-all">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div id="modalContent" class="p-6 sm:p-8">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CONTACT MODAL ==================== -->
+  <div id="contactModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl p-6 sm:p-8">
+      <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 z-10 bg-slate-800 text-slate-400 hover:text-white p-2 rounded-full transition-all">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="headset" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white">RideLanka Support</h3>
+        <p class="text-xs text-slate-400 mt-1">Have questions or want to advertise your vehicle?</p>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <a href="https://wa.me/94775688599?text=Hello%20RideLanka%20Support,%20I%20have%20an%20inquiry" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Chat on WhatsApp (077 568 8599)
+        </a>
+        <a href="tel:+94775688599" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-3.5 rounded-xl transition-all border border-slate-700">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          Call Hotline (077 568 8599)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ============ SUPABASE CONNECTION ============
+    // Project URL and public anon key (safe to be public; the table is read-only for visitors)
+    const SUPABASE_URL = "https://mtogksbgrpmdkurtblbs.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10b2drc2JncnBtZGt1cnRibGJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwNzUzODAsImV4cCI6MjEwNzY1MTM4MH0.RTOvfdGETklZUzOseZMEPKZxHeaPXcqhoW0Gy6s7F0w";
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Vehicles now come ONLY from the Supabase "vehicles" table
+    let vehiclesData = [];
+
+    // Escape text from the database before putting it into the page
+    function esc(t) {
+      return String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    }
+
+    // Cover photo (image_url) first, then any extra photos from the "images" column.
+    // Only http(s) links are kept, and duplicates are removed.
+    function buildGallery(r) {
+      const extra = Array.isArray(r.images) ? r.images : [];
+      return [...new Set([r.image_url, ...extra]
+        .map(u => String(u || "").trim())
+        .filter(u => /^https?:\/\//i.test(u)))];
+    }
+
+    // Convert a database row into the object shape the cards expect
+    function mapRow(r) {
+      const cc = r.engine_cc;
+      const engineLabel = (r.fuel === "Electric" || cc === null || cc === undefined || cc === "")
+        ? "Electric"
+        : (isNaN(cc) ? esc(cc) : cc + " cc");
+      return {
+        id: r.id,
+        title: esc(r.title),
+        category: r.category,
+        make: esc(r.make),
+        model: esc(r.model),
+        condition: r.condition,
+        city: esc(r.location),
+        price: Number(r.price_lkr) || 0,
+        year: Number(r.year) || 0,
+        mileage: Number(r.mileage_km) || 0,
+        engineCc: engineLabel,
+        fuel: r.fuel,
+        gear: r.transmission,
+        phone: esc(r.phone),
+        whatsapp: String(r.whatsapp || "").replace(/\D/g, ""),
+        sellerName: "RideLanka Seller",
+        image: esc(r.image_url),
+        gallery: buildGallery(r),
+        description: esc(r.description || `${r.title} - ${r.condition} ${r.category} available in ${r.location}. Contact the seller for more details.`)
+      };
+    }
+
+    async function loadVehicles() {
+      const countLabel = document.getElementById('resultsCount');
+      countLabel.innerText = "Loading vehicles from database...";
+      const { data, error } = await db
+        .from('vehicles')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error("Supabase error:", error);
+        countLabel.innerText = "Could not connect to the database: " + error.message;
+        vehiclesData = [];
+      } else {
+        console.log("Supabase connected. Rows received:", data.length);
+        vehiclesData = data.map(mapRow);
+      }
+    }
+
+    // Current Active Tab
+    let currentTab = 'all';
+
+    const makesByCategory = {
+      motorbike: ["Yamaha", "Honda", "Bajaj", "TVS", "Kawasaki", "Suzuki"],
+      scooter: ["Honda", "TVS", "Vespa", "Hero", "Yamaha", "Suzuki"]
+    };
+    // "All" shows every make once, alphabetically
+    makesByCategory.all = [...new Set([...makesByCategory.motorbike, ...makesByCategory.scooter])].sort();
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", async () => {
+      lucide.createIcons();
+      await loadVehicles();
+      switchTab('all');
+    });
+
+    // Tab Switcher
+    const TAB_ACTIVE = "flex-1 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md";
+    const TAB_INACTIVE = "flex-1 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-slate-400 hover:text-white";
+    const TAB_HEADINGS = { all: "All Vehicles", motorbike: "Available Motorbikes", scooter: "Available Scooters" };
+
+    function switchTab(category) {
+      currentTab = category;
+      ['all', 'motorbike', 'scooter'].forEach(c => {
+        document.getElementById('tab-' + c).className = (c === category) ? TAB_ACTIVE : TAB_INACTIVE;
+      });
+      document.getElementById('sectionHeading').innerText = TAB_HEADINGS[category];
+      populateMakes();
+      applyFilters();
+    }
+
+    // Populate Make Dropdown
+    function populateMakes() {
+      const makeSelect = document.getElementById('makeFilter');
+      const list = makesByCategory[currentTab] || [];
+      makeSelect.innerHTML = `<option value="">Any Make</option>` + list.map(m => `<option value="${m}">${m}</option>`).join('');
+    }
+
+    // Filtering Engine
+    function applyFilters() {
+      const selectedMake = document.getElementById('makeFilter').value;
+      const modelKeyword = document.getElementById('modelFilter').value.trim().toLowerCase();
+      const condition = document.getElementById('conditionFilter').value;
+      const city = document.getElementById('cityFilter').value;
+      const fuel = document.getElementById('fuelFilter').value;
+      const gear = document.getElementById('gearFilter').value;
+      const yearMin = parseInt(document.getElementById('yearMinFilter').value) || 0;
+      const yearMax = parseInt(document.getElementById('yearMaxFilter').value) || 9999;
+      const maxMileage = parseInt(document.getElementById('mileageFilter').value) || Infinity;
+      const minPrice = parseFloat(document.getElementById('minPriceFilter').value) || 0;
+      const maxPrice = parseFloat(document.getElementById('maxPriceFilter').value) || Infinity;
+      const sortBy = document.getElementById('sortBy').value;
+
+      let filtered = vehiclesData.filter(item => {
+        if (currentTab !== 'all' && item.category !== currentTab) return false;
+        if (selectedMake && item.make !== selectedMake) return false;
+        if (modelKeyword && !item.title.toLowerCase().includes(modelKeyword) && !item.model.toLowerCase().includes(modelKeyword)) return false;
+        if (condition && item.condition !== condition) return false;
+        if (city && item.city !== city) return false;
+        if (fuel && item.fuel !== fuel) return false;
+        if (gear && item.gear !== gear) return false;
+        if (item.year < yearMin || item.year > yearMax) return false;
+        if (item.mileage > maxMileage) return false;
+        if (item.price < minPrice || item.price > maxPrice) return false;
+
+        return true;
+      });
+
+      // Sort
+      if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+      else if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+      else if (sortBy === 'mileage-asc') filtered.sort((a, b) => a.mileage - b.mileage);
+      else filtered.sort((a, b) => b.year - a.year);
+
+      renderCards(filtered);
+    }
+
+    // Render Vehicle Cards
+    function renderCards(list) {
+      const grid = document.getElementById('vehicleGrid');
+      const noResults = document.getElementById('noResults');
+      const countLabel = document.getElementById('resultsCount');
+
+      const noun = currentTab === 'motorbike' ? 'motorbikes' : currentTab === 'scooter' ? 'scooters' : 'vehicles';
+      countLabel.innerText = `Showing ${list.length} verified ${noun} in Sri Lanka`;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+
+      grid.innerHTML = list.map(v => {
+        const waMsg = encodeURIComponent(`Hi ${v.sellerName}, I am inquiring about your ${v.title} listed on RideLanka for LKR ${v.price.toLocaleString()}. Is this still available?`);
+        const waUrl = `https://wa.me/${v.whatsapp}?text=${waMsg}`;
+
+        return `
+          <div class="bg-slate-900 border border-slate-800/90 rounded-2xl overflow-hidden shadow-lg hover:border-slate-700 hover:shadow-emerald-500/5 transition-all duration-300 flex flex-col justify-between group">
+            
+            <div>
+              <!-- Image Container -->
+              <div class="relative h-52 bg-slate-950 overflow-hidden cursor-pointer" onclick="openDetailModal(${v.id})">
+                <img src="${v.image}" alt="${v.title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                     onerror="this.src='https://placehold.co/600x400/0f172a/94a3b8?text=${encodeURIComponent(v.title)}'">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                
+                <!-- Category + photo count -->
+                ${currentTab === 'all' ? `<span class="absolute top-3 right-3 bg-slate-950/80 text-slate-200 border border-slate-700 text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-md capitalize">${esc(v.category)}</span>` : ''}
+                ${v.gallery.length > 1 ? `<span class="absolute top-12 right-3 bg-slate-950/80 text-slate-200 border border-slate-700 text-[10px] font-semibold px-2 py-1 rounded-md backdrop-blur-md">${v.gallery.length} photos</span>` : ''}
+
+                <!-- Condition Tag -->
+                <span class="absolute top-3 left-3 bg-slate-950/80 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-md">
+                  ${v.condition}
+                </span>
+
+                <!-- Price Banner -->
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span class="text-white font-extrabold text-base bg-slate-950/90 border border-slate-800 px-3 py-1 rounded-xl backdrop-blur-md text-emerald-400">
+                    LKR ${v.price.toLocaleString()}
+                  </span>
+                  <span class="text-[11px] text-slate-300 font-medium bg-slate-950/80 px-2.5 py-1 rounded-lg backdrop-blur-md flex items-center gap-1">
+                    <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> ${v.city}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Content Specs -->
+              <div class="p-5">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-medium mb-1">
+                  <span>${v.make}</span>
+                  <span>Year: ${v.year}</span>
+                </div>
+                
+                <h3 class="text-base font-bold text-white line-clamp-1 hover:text-emerald-400 transition-colors cursor-pointer" onclick="openDetailModal(${v.id})">
+                  ${v.title}
+                </h3>
+
+                <!-- Key Specs Grid -->
+                <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-800/80 text-[11px]">
+                  <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800 text-center">
+                    <span class="block text-[10px] text-slate-500">Mileage</span>
+                    <strong class="text-slate-200">${v.mileage.toLocaleString()} km</strong>
+                  </div>
+                  <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800 text-center">
+                    <span class="block text-[10px] text-slate-500">Capacity</span>
+                    <strong class="text-slate-200">${v.engineCc}</strong>
+                  </div>
+                  <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800 text-center">
+                    <span class="block text-[10px] text-slate-500">Fuel</span>
+                    <strong class="text-slate-200">${v.fuel}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seller & Action Buttons -->
+            <div class="p-5 pt-0 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-800/50">
+                <span>Seller: <strong class="text-slate-200 font-semibold">${v.sellerName}</strong></span>
+                <span class="text-slate-500">${v.gear}</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <a href="tel:${v.phone}" class="flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs py-2.5 rounded-xl transition-all border border-slate-700">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 text-slate-400"></i>
+                  Call
+                </a>
+
+                <a href="${waUrl}" target="_blank" class="flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-emerald-600/20">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Modal Details View
+    function openDetailModal(id) {
+      const v = vehiclesData.find(item => item.id === id);
+      if (!v) return;
+
+      const waMsg = encodeURIComponent(`Hi ${v.sellerName}, I am inquiring about your ${v.title} listed on RideLanka for LKR ${v.price.toLocaleString()}.`);
+      const waUrl = `https://wa.me/${v.whatsapp}?text=${waMsg}`;
+
+      const multi = v.gallery.length > 1;
+      galleryState = { imgs: v.gallery, i: 0 };
+
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
+        <div class="space-y-5">
+          <div>
+            <div id="galleryStage" class="aspect-video bg-slate-950 rounded-2xl overflow-hidden relative border border-slate-800 select-none">
+              <img id="galleryMain" src="${v.image}" alt="${v.title}" class="w-full h-full object-cover"
+                   onerror="this.onerror=null;this.src='https://placehold.co/800x450/0f172a/94a3b8?text=Photo+unavailable'">
+              <span class="absolute bottom-4 left-4 bg-slate-950/90 border border-slate-800 text-emerald-400 font-extrabold text-base px-4 py-1.5 rounded-xl backdrop-blur-md">
+                LKR ${v.price.toLocaleString()}
+              </span>
+              ${multi ? `
+              <button type="button" onclick="galleryStep(-1)" aria-label="Previous photo" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-950/70 hover:bg-slate-950 text-white w-9 h-9 rounded-full border border-slate-700 backdrop-blur-md flex items-center justify-center text-lg leading-none">&#8249;</button>
+              <button type="button" onclick="galleryStep(1)" aria-label="Next photo" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-950/70 hover:bg-slate-950 text-white w-9 h-9 rounded-full border border-slate-700 backdrop-blur-md flex items-center justify-center text-lg leading-none">&#8250;</button>
+              <span id="galleryCounter" class="absolute bottom-4 right-4 bg-slate-950/80 text-slate-200 text-[11px] font-semibold px-2.5 py-1 rounded-lg backdrop-blur-md border border-slate-800">1 / ${v.gallery.length}</span>` : ''}
+            </div>
+            ${multi ? `
+            <div id="galleryThumbs" class="flex gap-2 mt-3 overflow-x-auto pb-1">
+              ${v.gallery.map((u, i) => `
+              <button type="button" onclick="setGalleryImage(${i})" aria-label="Show photo ${i + 1}" data-thumb="${i}" class="shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 ${i === 0 ? 'border-emerald-500' : 'border-slate-800 opacity-70 hover:opacity-100'} transition-all">
+                <img src="${esc(u)}" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover">
+              </button>`).join('')}
+            </div>` : ''}
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+              <span>${v.condition}</span> • <span>${v.city}, Sri Lanka</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white mt-1">${v.title}</h2>
+          </div>
+
+          <!-- Specs Table -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 text-xs">
+            <div>
+              <span class="text-slate-500 block">Manufacture Year</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.year}</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Mileage</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.mileage.toLocaleString()} km</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Engine Capacity</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.engineCc}</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Transmission</span>
+              <span class="font-bold text-slate-200 mt-0.5 block">${v.gear} (${v.fuel})</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Vehicle Description</h4>
+            <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/40 p-3.5 rounded-xl border border-slate-800/60">${v.description}</p>
+          </div>
+
+          <!-- Seller Contact Info -->
+          <div class="border-t border-slate-800 pt-5 mt-2">
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-xs text-slate-400">Seller: <strong class="text-white">${v.sellerName}</strong> (${v.city})</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a href="tel:${v.phone}" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs py-3.5 rounded-xl transition-all border border-slate-700">
+                <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+                Call ${v.phone}
+              </a>
+              <a href="${waUrl}" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                WhatsApp Chat
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('detailModal').classList.remove('hidden');
+      lucide.createIcons();
+      attachGallerySwipe();
+    }
+
+    // ---------- Photo gallery inside the vehicle popup ----------
+    let galleryState = { imgs: [], i: 0 };
+
+    function setGalleryImage(i) {
+      const n = galleryState.imgs.length;
+      if (!n) return;
+      galleryState.i = (i + n) % n;
+      const main = document.getElementById('galleryMain');
+      if (main) main.src = galleryState.imgs[galleryState.i];
+      const counter = document.getElementById('galleryCounter');
+      if (counter) counter.textContent = `${galleryState.i + 1} / ${n}`;
+      document.querySelectorAll('#galleryThumbs [data-thumb]').forEach(btn => {
+        const active = Number(btn.dataset.thumb) === galleryState.i;
+        btn.classList.toggle('border-emerald-500', active);
+        btn.classList.toggle('border-slate-800', !active);
+        btn.classList.toggle('opacity-70', !active);
+        if (active) btn.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+    }
+
+    function galleryStep(d) { setGalleryImage(galleryState.i + d); }
+
+    // Swipe left/right on a phone to change photos
+    function attachGallerySwipe() {
+      const stage = document.getElementById('galleryStage');
+      if (!stage || galleryState.imgs.length < 2) return;
+      let startX = null;
+      stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', e => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) galleryStep(dx < 0 ? 1 : -1);
+        startX = null;
+      }, { passive: true });
+    }
+
+    // Arrow keys change photos while the popup is open
+    document.addEventListener('keydown', e => {
+      const modal = document.getElementById('detailModal');
+      if (!modal || modal.classList.contains('hidden')) return;
+      if (e.key === 'ArrowRight') galleryStep(1);
+      else if (e.key === 'ArrowLeft') galleryStep(-1);
+      else if (e.key === 'Escape') closeModal('detailModal');
+    });
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function openContactModal() {
+      document.getElementById('contactModal').classList.remove('hidden');
+    }
+
+    // Reset Filters
+    function resetFilters() {
+      document.getElementById('makeFilter').value = "";
+      document.getElementById('modelFilter').value = "";
+      document.getElementById('conditionFilter').value = "";
+      document.getElementById('cityFilter').value = "";
+      document.getElementById('fuelFilter').value = "";
+      document.getElementById('gearFilter').value = "";
+      document.getElementById('yearMinFilter').value = "";
+      document.getElementById('yearMaxFilter').value = "";
+      document.getElementById('mileageFilter').value = "";
+      document.getElementById('minPriceFilter').value = "";
+      document.getElementById('maxPriceFilter').value = "";
+      document.getElementById('sortBy').value = "newest";
+      applyFilters();
+    }
+  </script>
+</body>
+</html>
